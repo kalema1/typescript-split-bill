@@ -33,3 +33,47 @@ body {
   column-gap: 4rem;
   align-items: start;
 }
+
+.img {
+  border-radius: 50%;
+  width: 100%;
+  grid-row: span 2;
+}
+.friends-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+}
+
+.list-item {
+  display: grid;
+  grid-template-columns: 4.8rem 1fr auto;
+  align-items: center;
+  column-gap: 1.6rem;
+  padding: 1.2rem;
+  border-radius: 7px;
+  transition: 0.5s;
+}
+
+.list-item:hover {
+  background-color: var(--color-lightest);
+}
+
+.list-item img {
+  border-radius: 50%;
+  width: 100%;
+  grid-row: span 2;
+}
+
+.list-item h3 {
+  grid-row: 1;
+  grid-column: 2;
+}
+
+.list-item p {
+  grid-row: 2;
+  grid-column: 2;
+}
