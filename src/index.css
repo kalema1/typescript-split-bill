@@ -103,3 +103,50 @@ body {
   float: right;
   margin-right: 1.2rem;
 }
+
+.form {
+  font-size: 1.6rem;
+  display: grid;
+  align-items: center;
+  gap: 1.2rem;
+  background-color: var(--color-lightest);
+  border-radius: 7px;
+}
+
+.add-friend-form {
+  grid-template-columns: 1fr 1.5fr;
+  margin-bottom: 1.6rem;
+  padding: 1.2rem;
+}
+
+.label {
+  font-weight: 500;
+}
+
+.label::first-letter {
+  display: inline-block;
+  margin-right: 2px;
+  font-size: 1.4rem;
+}
+
+input,
+select {
+  font-family: inherit;
+  color: inherit;
+  font-size: 1.5rem;
+  padding: 0.7rem;
+  text-align: center;
+  border: 1px solid var(--color-light);
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border: 1px solid var(--color-dark);
+}
+.form .button {
+  margin-top: 0.6rem;
+  grid-column: 2;
+}
