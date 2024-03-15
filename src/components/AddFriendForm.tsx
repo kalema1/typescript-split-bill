@@ -10,7 +10,7 @@ export default function AddFriendForm() {
 
       <label className="label">📸 Image</label>
       <input type="text" />
-      <Button onClick={() => console.log("add friend")}>Add Friend</Button>
+      <Button onClick={() => console.log("add friend")}>Add</Button>
     </form>
   );
 }
