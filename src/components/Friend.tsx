@@ -1,4 +1,5 @@
 import { FriendItem } from "../data/Data.type";
+import Button from "./Button";
 
 /**
  * friend component
@@ -23,6 +24,8 @@ export default function Friend({ friend }: FriendItem) {
       )}
 
       {friend.balance === 0 && <p>you and {friend.name} are even</p>}
+
+      <Button onClick={() => console.log("click")}>select</Button>
     </li>
   );
 }
