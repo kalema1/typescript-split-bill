@@ -79,6 +79,14 @@ body {
   grid-column: 2;
 }
 
+.green {
+  color: #66a80f;
+}
+
+.red {
+  color: #e03131;
+}
+
 .button {
   background-color: var(--color-medium);
   color: var(--color-text);
