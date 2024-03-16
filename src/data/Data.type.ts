@@ -1,5 +1,5 @@
 export type FriendItem = {
-  friend: { id: number; name: string; image: string; balance: number };
+  friend: { id: string; name: string; image: string; balance: number };
 };
 
 export type InitialFriendsData = {
