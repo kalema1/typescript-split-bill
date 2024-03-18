@@ -12,6 +12,19 @@ export default function App() {
   const [selectedFriend, setSelectedFriend] = useState<FriendItem | null>(null);
 
   /**
+   * splits bill
+   */
+  function handleSplitBill(value: number) {
+    setFriends(
+      friends.map((friend) =>
+        friend.id === selectedFriend.id
+          ? { ...friend, balance: friend.balance + value }
+          : friend
+      )
+    );
+  }
+
+  /**
    *
    * selects a friend
    * remove the add friend form
@@ -53,7 +66,12 @@ export default function App() {
         </Button>
       </div>
 
-      {!!selectedFriend && <SplitBillForm selectedFriend={selectedFriend} />}
+      {!!selectedFriend && (
+        <SplitBillForm
+          selectedFriend={selectedFriend}
+          onSplitBill={handleSplitBill}
+        />
+      )}
     </div>
   );
 }
