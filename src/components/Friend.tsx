@@ -1,4 +1,4 @@
-import { FriendItem } from "../data/Data.type";
+import { FriendItem, InitialFriendsData } from "../data/Data.type";
 import Button from "./Button";
 
 /**
@@ -6,7 +6,10 @@ import Button from "./Button";
  * renders friends item
  * @param {object} friend - friends object from the array list
  */
-export default function Friend({ friend }: FriendItem) {
+export default function Friend({
+  friend,
+  onFriendSelection,
+}: FriendItem | InitialFriendsData) {
   return (
     <li className="list-item">
       <img className="img" src={friend.image} alt={friend.name} />
@@ -25,7 +28,7 @@ export default function Friend({ friend }: FriendItem) {
 
       {friend.balance === 0 && <p>you and {friend.name} are even</p>}
 
-      <Button onClick={() => console.log("click")}>select</Button>
+      <Button onClick={() => onFriendSelection(friend)}>select</Button>
     </li>
   );
 }

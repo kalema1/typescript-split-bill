@@ -9,6 +9,15 @@ import { FriendItem } from "./data/Data.type";
 export default function App() {
   const [friends, setFriends] = useState(initialFriends);
   const [showAddFriendForm, setShowAddFriendForm] = useState(false);
+  const [selectedfriend, setSelectedFriend] = useState<FriendItem | null>(null);
+
+  /**
+   *
+   * selects a friend
+   */
+  function handleFriendSelection(friend: FriendItem) {
+    setSelectedFriend(friend);
+  }
 
   /**
    * toggles the add friend form
@@ -26,13 +35,19 @@ export default function App() {
   return (
     <div className="app-container">
       <div className="sidebar">
-        <FriendsList friends={friends} />
+        <FriendsList
+          friends={friends}
+          onFriendSelection={handleFriendSelection}
+        />
+
         {showAddFriendForm && <AddFriendForm onAddfriend={handleAddFriend} />}
+
         <Button onClick={handleShowAddfriendForm}>
           {showAddFriendForm ? "Close" : "Add friend"}
         </Button>
       </div>
-      <SplitBillForm />
+
+      {!!selectedfriend && <SplitBillForm />}
     </div>
   );
 }
