@@ -9,7 +9,7 @@ import { FriendItem } from "./data/Data.type";
 export default function App() {
   const [friends, setFriends] = useState(initialFriends);
   const [showAddFriendForm, setShowAddFriendForm] = useState(false);
-  const [selectedfriend, setSelectedFriend] = useState<FriendItem | null>(null);
+  const [selectedFriend, setSelectedFriend] = useState<FriendItem | null>(null);
 
   /**
    *
@@ -47,7 +47,7 @@ export default function App() {
         </Button>
       </div>
 
-      {!!selectedfriend && <SplitBillForm />}
+      {!!selectedFriend && <SplitBillForm selectedFriend={selectedFriend} />}
     </div>
   );
 }
