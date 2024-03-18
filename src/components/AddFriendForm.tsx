@@ -42,6 +42,7 @@ export default function AddFriendForm({ onAddfriend }) {
         type="text"
         value={image}
         onChange={(event) => setImage(event.target.value)}
+        disabled
       />
       <Button onClick={() => console.log("add friend")}>Add</Button>
     </form>
