@@ -12,6 +12,7 @@ export default function SplitBillForm({ selectedFriend }) {
 
   /**
    * handle the change of expense value
+   * @param {object} event - react change event on input element
    */
   function handleChangePaidByUser(event: React.ChangeEvent<HTMLInputElement>) {
     const IsGreaterThanBill = Number(event.target.value) > bill;
