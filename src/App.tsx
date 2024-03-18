@@ -14,11 +14,14 @@ export default function App() {
   /**
    *
    * selects a friend
+   * remove the add friend form
    */
   function handleFriendSelection(friend: FriendItem) {
     setSelectedFriend((currentFriend) =>
       currentFriend?.id === friend.id ? null : friend
     );
+
+    setShowAddFriendForm(false);
   }
 
   /**

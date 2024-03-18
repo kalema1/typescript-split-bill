@@ -32,7 +32,7 @@ export default function Friend({
       {friend.balance === 0 && <p>you and {friend.name} are even</p>}
 
       <Button onClick={() => onFriendSelection(friend)}>
-        {isSelectedFriend ? "Close" : "select"}
+        {isSelectedFriend ? "Close" : "Select"}
       </Button>
     </li>
   );
