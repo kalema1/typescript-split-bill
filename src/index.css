@@ -59,7 +59,8 @@ body {
   transition: 0.5s;
 }
 
-.list-item:hover {
+.list-item:hover,
+.selected {
   background-color: var(--color-lightest);
 }
 

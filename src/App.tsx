@@ -38,6 +38,7 @@ export default function App() {
         <FriendsList
           friends={friends}
           onFriendSelection={handleFriendSelection}
+          selectedFriend={selectedFriend}
         />
 
         {showAddFriendForm && <AddFriendForm onAddfriend={handleAddFriend} />}

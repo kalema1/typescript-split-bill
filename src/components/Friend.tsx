@@ -9,9 +9,12 @@ import Button from "./Button";
 export default function Friend({
   friend,
   onFriendSelection,
+  selectedFriend,
 }: FriendItem | InitialFriendsData) {
+  const isSelectedFriend = selectedFriend?.id === friend.id;
+
   return (
-    <li className="list-item">
+    <li className={`list-item ${isSelectedFriend ? "selected" : ""}`}>
       <img className="img" src={friend.image} alt={friend.name} />
       <h3>{friend.name}</h3>
       {friend.balance < 0 && (
