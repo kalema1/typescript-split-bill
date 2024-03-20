@@ -50,6 +50,7 @@ export default function App() {
   function handleAddFriend(friend: FriendItem) {
     setFriends([...friends, friend]);
   }
+
   return (
     <div className="app-container">
       <div className="sidebar">

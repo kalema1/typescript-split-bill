@@ -5,7 +5,7 @@ import Friend from "./Friend";
 
 type FriendListProps = {
   friends: InitialFriendsData;
-  onFriendSelection: () => void;
+  onFriendSelection: (friend: FriendItem) => void;
   selectedFriend: FriendItem;
 };
 

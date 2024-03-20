@@ -7,5 +7,4 @@ export type FriendItem = {
 
 export type InitialFriendsData = {
   initialFriends: FriendItem[];
-  onFriendSelection: (friend: FriendItem) => void;
 };

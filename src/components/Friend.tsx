@@ -1,5 +1,11 @@
-import { FriendItem, InitialFriendsData } from "../data/Data.type";
+import { FriendItem } from "../data/Data.type";
 import Button from "./Button";
+
+type FriendProps = {
+  friend: FriendItem;
+  onFriendSelection: (friend: FriendItem) => void;
+  selectedFriend: FriendItem | null;
+};
 
 /**
  * friend component
@@ -10,7 +16,7 @@ export default function Friend({
   friend,
   onFriendSelection,
   selectedFriend,
-}: FriendItem | InitialFriendsData) {
+}: FriendProps) {
   const isSelectedFriend = selectedFriend?.id === friend.id;
 
   return (
