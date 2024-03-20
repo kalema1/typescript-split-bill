@@ -2,20 +2,30 @@
 
 import { useState } from "react";
 import Button from "./Button";
+import { FriendItem } from "../data/Data.type";
 
-export default function SplitBillForm({ selectedFriend, onSplitBill }) {
+type SplitBillProps = {
+  selectedFriend: FriendItem;
+  onSplitBill: (value: number) => void;
+};
+
+export default function SplitBillForm({
+  selectedFriend,
+  onSplitBill,
+}: SplitBillProps) {
   const [bill, setBill] = useState<number | string>("");
   const [paidByUser, setPaidByUser] = useState<number | string>("");
   const [whoIsPaying, setWhoisPaying] = useState("user");
 
-  const paidByFriend = bill ? bill - paidByUser : "";
+  const paidByFriend = bill ? Number(bill) - Number(paidByUser) : "";
 
   /**
    * handle the change of expense value
    * @param {object} event - react change event on input element
    */
   function handleChangePaidByUser(event: React.ChangeEvent<HTMLInputElement>) {
-    const IsGreaterThanBill = Number(event.target.value) > bill;
+    // check if value is greater than the bill
+    const IsGreaterThanBill = Number(event.target.value) > Number(bill);
     const value = IsGreaterThanBill ? paidByUser : Number(event.target.value);
 
     setPaidByUser(value);
@@ -33,7 +43,7 @@ export default function SplitBillForm({ selectedFriend, onSplitBill }) {
 
     const value = whoIsPaying === "user" ? paidByFriend : -paidByUser;
 
-    onSplitBill(value);
+    onSplitBill(Number(value));
 
     setBill("");
     setPaidByUser("");
