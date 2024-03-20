@@ -3,11 +3,17 @@
 import { FriendItem, InitialFriendsData } from "../data/Data.type";
 import Friend from "./Friend";
 
+type FriendListProps = {
+  friends: InitialFriendsData;
+  onFriendSelection: () => void;
+  selectedFriend: FriendItem;
+};
+
 export default function FriendsList({
   friends,
   onFriendSelection,
   selectedFriend,
-}: InitialFriendsData | FriendItem) {
+}: FriendListProps) {
   return (
     <ul className="friends-list">
       {friends.map((friend: FriendItem) => (

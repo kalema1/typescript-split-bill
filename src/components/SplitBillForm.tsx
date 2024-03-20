@@ -65,7 +65,7 @@ export default function SplitBillForm({ selectedFriend, onSplitBill }) {
         <option value="friend">{selectedFriend.name}</option>
       </select>
 
-      <Button onClick={() => console.log("split bill")}>Split bill</Button>
+      <Button>Split bill</Button>
     </form>
   );
 }

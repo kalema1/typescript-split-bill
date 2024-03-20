@@ -2,8 +2,13 @@
 
 import { useState } from "react";
 import Button from "./Button";
+import { FriendItem } from "../data/Data.type";
 
-export default function AddFriendForm({ onAddfriend }) {
+type AddfriedFromProps = {
+  onAddfriend: (friend: FriendItem) => void;
+};
+
+export default function AddFriendForm({ onAddfriend }: AddfriedFromProps) {
   const [name, setName] = useState("");
   const [image, setImage] = useState("https://i.pravatar.cc/48");
   const id = crypto.randomUUID();
