@@ -6,7 +6,7 @@ import Friend from "./Friend";
 type FriendListProps = {
   friends: FriendItem[];
   onFriendSelection: (friend: FriendItem) => void;
-  selectedFriend: FriendItem;
+  selectedFriend: FriendItem | null;
 };
 
 export default function FriendsList({
