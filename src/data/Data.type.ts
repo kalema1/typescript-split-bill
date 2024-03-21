@@ -4,7 +4,3 @@ export type FriendItem = {
   image: string;
   balance: number;
 };
-
-export type InitialFriendsData = {
-  initialFriends: FriendItem[];
-};
