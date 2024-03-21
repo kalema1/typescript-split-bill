@@ -33,6 +33,7 @@ export default function SplitBillForm({
   /**
    *
    * handles the submit of the form
+   * @param {object} event - form event on the form element
    */
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();

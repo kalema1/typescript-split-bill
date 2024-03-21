@@ -10,7 +10,9 @@ type FriendProps = {
 /**
  * friend component
  * renders friends item
- * @param {object} friend - friends object from the array list
+ * @prop {object} friend - friends object from the array list
+ * @prop {functon} onFriendSelection - selects friend
+ * @prop {object} selectedFriend - friend selected from the list
  */
 export default function Friend({
   friend,

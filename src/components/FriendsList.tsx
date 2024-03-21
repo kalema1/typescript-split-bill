@@ -9,6 +9,13 @@ type FriendListProps = {
   selectedFriend: FriendItem | null;
 };
 
+/**
+ * FriendList component
+ * renders the list of friends
+ * @prop {array} friends - array list of friends
+ * @prop {function} onFriendSelection - selects friend from the list
+ * @prop {object} selectedFriend - friend object to be selected
+ */
 export default function FriendsList({
   friends,
   onFriendSelection,

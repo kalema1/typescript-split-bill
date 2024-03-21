@@ -13,6 +13,7 @@ export default function App() {
 
   /**
    * splits bill
+   * @param {number} value - balance value after payment
    */
   function handleSplitBill(value: number) {
     setFriends(
@@ -28,6 +29,7 @@ export default function App() {
    *
    * selects a friend
    * remove the add friend form
+   * @param {object} friend - friend object that is to be selected
    */
   function handleFriendSelection(friend: FriendItem) {
     setSelectedFriend((currentFriend) =>
@@ -46,6 +48,7 @@ export default function App() {
 
   /**
    * add friend on the list
+   * @param {object} friend - friend added onto the list
    */
   function handleAddFriend(friend: FriendItem) {
     setFriends([...friends, friend]);

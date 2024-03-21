@@ -8,6 +8,10 @@ type AddfriedFromProps = {
   onAddfriend: (friend: FriendItem) => void;
 };
 
+/**
+ * AddFriendForm component
+ * @prop {function} onAddfirend - function that add friends to list on form submit
+ */
 export default function AddFriendForm({ onAddfriend }: AddfriedFromProps) {
   const [name, setName] = useState("");
   const [image, setImage] = useState("https://i.pravatar.cc/48");
@@ -16,6 +20,7 @@ export default function AddFriendForm({ onAddfriend }: AddfriedFromProps) {
   /**
    *
    * handles the submit of the name and image
+   * @param {object} event - form event on the form element
    */
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
