@@ -1,0 +1,33 @@
+/* *************************** */
+/* BELOW 830px */
+/* ******************************/
+@media (max-width: 52em) {
+  .app-container {
+    padding: 0 1rem;
+    margin-top: 10rem;
+    margin-bottom: 2rem;
+    align-items: center;
+    grid-template-columns: 40rem;
+    gap: 4rem;
+  }
+
+  .split-bill-form {
+    grid-row: 1;
+  }
+
+  .list-item {
+    grid-template-columns: 4rem 1fr auto;
+  }
+
+  .add-friend-form {
+    padding: 1.6rem;
+  }
+
+  .list-item img {
+    margin-left: 1.6rem;
+  }
+
+  .label {
+    margin-left: 1.6rem;
+  }
+}

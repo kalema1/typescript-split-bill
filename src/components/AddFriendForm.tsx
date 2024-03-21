@@ -54,7 +54,7 @@ export default function AddFriendForm({ onAddfriend }: AddfriedFromProps) {
         onChange={(event) => setImage(event.target.value)}
         disabled
       />
-      <Button onClick={() => console.log("add friend")}>Add</Button>
+      <Button>Add</Button>
     </form>
   );
 }
