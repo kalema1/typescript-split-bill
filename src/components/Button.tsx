@@ -1,7 +1,4 @@
-type ButtonProp = {
-  children: string;
-  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-};
+import { ButtonProp } from "../types/Button.type";
 
 /**
  * button component
