@@ -1,11 +1,5 @@
-import { FriendItem } from "../data/Data.type";
 import Button from "./Button";
-
-type FriendProps = {
-  friend: FriendItem;
-  onFriendSelection: (friend: FriendItem) => void;
-  selectedFriend: FriendItem | null;
-};
+import { FriendProps } from "../types/Friend.type";
 
 /**
  * friend component
