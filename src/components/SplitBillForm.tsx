@@ -2,12 +2,7 @@
 
 import { useState } from "react";
 import Button from "./Button";
-import { FriendItem } from "../data/Data.type";
-
-type SplitBillProps = {
-  selectedFriend: FriendItem;
-  onSplitBill: (value: number) => void;
-};
+import { SplitBillProps } from "../types/SplitBillForm.types";
 
 export default function SplitBillForm({
   selectedFriend,
