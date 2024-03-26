@@ -1,10 +1,10 @@
 // component file responsible for rendering list of friends
 
-import { FriendItem } from "../data/Data.type";
+import { FriendItem, FriendsProp } from "../data/Data.type";
 import Friend from "./Friend";
 
 type FriendListProps = {
-  friends: FriendItem[];
+  friends: FriendsProp;
   onFriendSelection: (friend: FriendItem) => void;
   selectedFriend: FriendItem | null;
 };
