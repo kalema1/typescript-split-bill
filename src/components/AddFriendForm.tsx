@@ -2,11 +2,7 @@
 
 import { useState } from "react";
 import Button from "./Button";
-import { FriendItem } from "../data/Data.type";
-
-type AddfriedFromProps = {
-  onAddfriend: (friend: FriendItem) => void;
-};
+import { AddfriedFromProps } from "../types/AddFriendForm.type";
 
 /**
  * AddFriendForm component
