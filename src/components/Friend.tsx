@@ -2,6 +2,7 @@ import Button from "./Button";
 import { useContext } from "react";
 import { FriendsContext } from "../contexts/FriendsContext";
 import { FriendProps } from "../types/Friend.type";
+import { CLOSE, SELECT } from "../constants/buttonContants";
 
 /**
  * friend component
@@ -34,7 +35,7 @@ export default function Friend({ friend }: FriendProps) {
       {friend.balance === 0 && <p>you and {friend.name} are even</p>}
 
       <Button onClick={() => onFriendSelection(friend)}>
-        {isSelectedFriend ? "Close" : "Select"}
+        {isSelectedFriend ? CLOSE : SELECT}
       </Button>
     </li>
   );

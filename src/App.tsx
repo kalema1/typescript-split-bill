@@ -4,6 +4,7 @@ import Button from "./components/Button";
 import FriendsList from "./components/FriendsList";
 import SplitBillForm from "./components/SplitBillForm";
 import { FriendsContext } from "./contexts/FriendsContext";
+import { ADD_FRIEND, CLOSE } from "./constants/buttonContants";
 
 export default function App() {
   const { showAddFriendForm, handleShowAddfriendForm, selectedFriend } =
@@ -16,7 +17,7 @@ export default function App() {
         {showAddFriendForm && <AddFriendForm />}
 
         <Button onClick={handleShowAddfriendForm}>
-          {showAddFriendForm ? "Close" : "Add friend"}
+          {showAddFriendForm ? CLOSE : ADD_FRIEND}
         </Button>
       </div>
 
