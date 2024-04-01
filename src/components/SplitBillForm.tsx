@@ -1,18 +1,17 @@
 // component file responsible for spliting the bill
 
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Button from "./Button";
-import { SplitBillProps } from "../types/SplitBillForm.types";
+import { FriendsContext } from "../contexts/FriendsContext";
 
-export default function SplitBillForm({
-  selectedFriend,
-  onSplitBill,
-}: SplitBillProps) {
+export default function SplitBillForm() {
   const [bill, setBill] = useState<number | string>("");
   const [paidByUser, setPaidByUser] = useState<number | string>("");
   const [whoIsPaying, setWhoisPaying] = useState("user");
 
   const paidByFriend = bill ? Number(bill) - Number(paidByUser) : "";
+
+  const { selectedFriend, onSplitBill } = useContext(FriendsContext);
 
   /**
    * handle the change of expense value
@@ -48,7 +47,7 @@ export default function SplitBillForm({
 
   return (
     <form className="form split-bill-form" onSubmit={handleSubmit}>
-      <h2>SPLIT A BILL WITH {selectedFriend.name}</h2>
+      <h2>SPLIT A BILL WITH {selectedFriend?.name}</h2>
       <label className="label">💰 Bill value</label>
       <input
         type="text"
@@ -59,7 +58,7 @@ export default function SplitBillForm({
       <label className="label">🧍‍♂️ Your expense</label>
       <input type="text" value={paidByUser} onChange={handleChangePaidByUser} />
 
-      <label className="label">👩🏻‍🤝‍🧑🏼 {selectedFriend.name}'s expense</label>
+      <label className="label">👩🏻‍🤝‍🧑🏼 {selectedFriend?.name}'s expense</label>
       <input type="text" disabled value={paidByFriend} />
 
       <label>🤑 Who is paying the bill</label>
@@ -68,7 +67,7 @@ export default function SplitBillForm({
         onChange={(event) => setWhoisPaying(event.target.value)}
       >
         <option value="user">you</option>
-        <option value="friend">{selectedFriend.name}</option>
+        <option value="friend">{selectedFriend?.name}</option>
       </select>
 
       <Button>Split bill</Button>

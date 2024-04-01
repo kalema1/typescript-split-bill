@@ -1,4 +1,6 @@
 import Button from "./Button";
+import { useContext } from "react";
+import { FriendsContext } from "../contexts/FriendsContext";
 import { FriendProps } from "../types/Friend.type";
 
 /**
@@ -8,11 +10,9 @@ import { FriendProps } from "../types/Friend.type";
  * @prop {functon} onFriendSelection - selects friend
  * @prop {object} selectedFriend - friend selected from the list
  */
-export default function Friend({
-  friend,
-  onFriendSelection,
-  selectedFriend,
-}: FriendProps) {
+export default function Friend({ friend }: FriendProps) {
+  const { onFriendSelection, selectedFriend } = useContext(FriendsContext);
+
   const isSelectedFriend = selectedFriend?.id === friend.id;
 
   return (

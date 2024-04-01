@@ -1,17 +1,19 @@
 // component file responsible for adding new friends to the list
 
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Button from "./Button";
-import { AddfriedFromProps } from "../types/AddFriendForm.type";
+import { FriendsContext } from "../contexts/FriendsContext";
 
 /**
  * AddFriendForm component
  * @prop {function} onAddfirend - function that add friends to list on form submit
  */
-export default function AddFriendForm({ onAddfriend }: AddfriedFromProps) {
+export default function AddFriendForm() {
   const [name, setName] = useState("");
   const [image, setImage] = useState("https://i.pravatar.cc/48");
   const id = crypto.randomUUID();
+
+  const { onAddfriend } = useContext(FriendsContext);
 
   /**
    *
