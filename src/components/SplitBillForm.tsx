@@ -1,49 +1,21 @@
 // component file responsible for spliting the bill
 
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import Button from "./Button";
-import { FriendsContext } from "../contexts/FriendsContext";
+import { BillContext } from "../contexts/BillContext";
 
 export default function SplitBillForm() {
-  const [bill, setBill] = useState<number | string>("");
-  const [paidByUser, setPaidByUser] = useState<number | string>("");
-  const [whoIsPaying, setWhoisPaying] = useState("user");
-
-  const paidByFriend = bill ? Number(bill) - Number(paidByUser) : "";
-
-  const { selectedFriend, onSplitBill } = useContext(FriendsContext);
-
-  /**
-   * handle the change of expense value
-   * @param {object} event - react change event on input element
-   */
-  function handleChangePaidByUser(event: React.ChangeEvent<HTMLInputElement>) {
-    // check if value is greater than the bill
-    const IsGreaterThanBill = Number(event.target.value) > Number(bill);
-    const value = IsGreaterThanBill ? paidByUser : Number(event.target.value);
-
-    setPaidByUser(value);
-  }
-  /**
-   *
-   * handles the submit of the form
-   * @param {object} event - form event on the form element
-   */
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-
-    if (!bill || !paidByUser) {
-      return;
-    }
-
-    const value = whoIsPaying === "user" ? paidByFriend : -paidByUser;
-
-    onSplitBill(Number(value));
-
-    setBill("");
-    setPaidByUser("");
-    setWhoisPaying("user");
-  }
+  const {
+    bill,
+    setBill,
+    paidByUser,
+    whoIsPaying,
+    setWhoisPaying,
+    paidByFriend,
+    selectedFriend,
+    handleChangePaidByUser,
+    handleSubmit,
+  } = useContext(BillContext);
 
   return (
     <form className="form split-bill-form" onSubmit={handleSubmit}>
