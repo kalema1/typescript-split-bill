@@ -12,7 +12,11 @@ export default function AddFriendForm() {
   const { name, setName, image, setImage, handleSubmit } =
     useContext(AddFriendContext);
   return (
-    <form className=" form add-friend-form" onSubmit={handleSubmit}>
+    <form
+      className=" form add-friend-form"
+      onSubmit={handleSubmit}
+      name="add friend"
+    >
       <label className="label">👩🏻‍🤝‍🧑🏼 Friend name</label>
       <input
         type="text"

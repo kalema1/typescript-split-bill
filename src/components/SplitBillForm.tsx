@@ -18,7 +18,11 @@ export default function SplitBillForm() {
   } = useContext(BillContext);
 
   return (
-    <form className="form split-bill-form" onSubmit={handleSubmit}>
+    <form
+      className="form split-bill-form"
+      onSubmit={handleSubmit}
+      name="split bill form"
+    >
       <h2>SPLIT A BILL WITH {selectedFriend?.name}</h2>
       <label className="label">💰 Bill value</label>
       <input
