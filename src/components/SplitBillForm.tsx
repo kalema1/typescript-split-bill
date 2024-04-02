@@ -33,7 +33,7 @@ export default function SplitBillForm() {
       <label className="label">👩🏻‍🤝‍🧑🏼 {selectedFriend?.name}'s expense</label>
       <input type="text" disabled value={paidByFriend} />
 
-      <label>🤑 Who is paying the bill</label>
+      <label className="label">🤑 Who is paying the bill</label>
       <select
         value={whoIsPaying}
         onChange={(event) => setWhoisPaying(event.target.value)}
