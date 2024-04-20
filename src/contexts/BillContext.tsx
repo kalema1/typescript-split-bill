@@ -34,6 +34,11 @@ export function BillProvider({ children }: ChildrenProp) {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
+    if (isNaN(Number(bill)) || isNaN(Number(paidByUser))) {
+      setBill("");
+      setPaidByUser("");
+    }
+
     if (!bill || !paidByUser) {
       return;
     }
