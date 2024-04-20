@@ -12,7 +12,8 @@ export function BillProvider({ children }: ChildrenProp) {
 
   const paidByFriend = bill ? Number(bill) - Number(paidByUser) : "";
 
-  const { selectedFriend, onSplitBill } = useContext(FriendsContext);
+  const { selectedFriend, onSplitBill, setIsLoading } =
+    useContext(FriendsContext);
 
   /**
    * handle the change of expense value
@@ -37,6 +38,8 @@ export function BillProvider({ children }: ChildrenProp) {
       return;
     }
 
+    setIsLoading(true);
+
     const value = whoIsPaying === "user" ? paidByFriend : -paidByUser;
 
     onSplitBill(Number(value));
@@ -44,6 +47,7 @@ export function BillProvider({ children }: ChildrenProp) {
     setBill("");
     setPaidByUser("");
     setWhoisPaying("user");
+    setIsLoading(false);
   }
 
   return (

@@ -5,6 +5,8 @@ export type AppProp = {
   handleShowAddfriendForm: () => void;
   selectedFriend: FriendItem | null;
   friends: FriendsProp;
+  isLoading: boolean;
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
   onFriendSelection: (friend: FriendItem) => void;
   onAddfriend: (friend: FriendItem) => void;
   onSplitBill: (value: number) => void;

@@ -3,6 +3,7 @@
 import { useContext } from "react";
 import Button from "./Button";
 import { AddFriendContext } from "../contexts/AddFriendContext";
+import { FriendsContext } from "../contexts/FriendsContext";
 
 /**
  * AddFriendForm component
@@ -11,6 +12,9 @@ import { AddFriendContext } from "../contexts/AddFriendContext";
 export default function AddFriendForm() {
   const { name, setName, image, setImage, handleSubmit } =
     useContext(AddFriendContext);
+
+  const { isLoading } = useContext(FriendsContext);
+
   return (
     <form
       className=" form add-friend-form"
@@ -31,7 +35,7 @@ export default function AddFriendForm() {
         onChange={(event) => setImage(event.target.value)}
         disabled
       />
-      <Button>Add</Button>
+      <Button disabled={isLoading}>Add</Button>
     </form>
   );
 }

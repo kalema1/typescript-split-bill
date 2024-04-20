@@ -10,7 +10,7 @@ export function AddFriendProvider({ children }: ChildrenProp) {
   const [image, setImage] = useState("https://i.pravatar.cc/48");
   const id = crypto.randomUUID();
 
-  const { onAddfriend } = useContext(FriendsContext);
+  const { onAddfriend, setIsLoading } = useContext(FriendsContext);
 
   /**
    *
@@ -24,6 +24,8 @@ export function AddFriendProvider({ children }: ChildrenProp) {
       return;
     }
 
+    setIsLoading(true);
+
     //create new friend object
     const newfriend = { name, image: `${image}?=${id}`, balance: 0, id };
     onAddfriend(newfriend);
@@ -31,11 +33,19 @@ export function AddFriendProvider({ children }: ChildrenProp) {
     //set the form back to default
     setName("");
     setImage("https://i.pravatar.cc/48");
+
+    setIsLoading(false);
   }
 
   return (
     <AddFriendContext.Provider
-      value={{ name, setName, image, setImage, handleSubmit }}
+      value={{
+        name,
+        setName,
+        image,
+        setImage,
+        handleSubmit,
+      }}
     >
       {children}
     </AddFriendContext.Provider>

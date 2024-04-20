@@ -3,6 +3,7 @@
 import { useContext } from "react";
 import Button from "./Button";
 import { BillContext } from "../contexts/BillContext";
+import { FriendsContext } from "../contexts/FriendsContext";
 
 export default function SplitBillForm() {
   const {
@@ -16,6 +17,8 @@ export default function SplitBillForm() {
     handleChangePaidByUser,
     handleSubmit,
   } = useContext(BillContext);
+
+  const { isLoading } = useContext(FriendsContext);
 
   return (
     <form
@@ -46,7 +49,7 @@ export default function SplitBillForm() {
         <option value="friend">{selectedFriend?.name}</option>
       </select>
 
-      <Button>Split bill</Button>
+      <Button disabled={isLoading}>Split bill</Button>
     </form>
   );
 }

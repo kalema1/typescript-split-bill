@@ -15,6 +15,7 @@ function FriendsProvider({ children }: ChildrenProp) {
   const [friends, setFriends] = useState(initialFriends);
   const [showAddFriendForm, setShowAddFriendForm] = useState(false);
   const [selectedFriend, setSelectedFriend] = useState<FriendItem | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   /**
    * splits bill
@@ -28,6 +29,7 @@ function FriendsProvider({ children }: ChildrenProp) {
           : friend
       )
     );
+    setIsLoading(true);
   }
 
   /**
@@ -70,6 +72,8 @@ function FriendsProvider({ children }: ChildrenProp) {
         onSplitBill: handleSplitBill,
         showAddFriendForm,
         handleShowAddfriendForm,
+        isLoading,
+        setIsLoading,
       }}
     >
       {children}

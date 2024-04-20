@@ -6,9 +6,9 @@ import { ButtonProp } from "../types/Button.type";
  * @prop {string} children - prop to be a string
  * @prop {object} onClick - click event on the button
  */
-export default function Button({ children, onClick }: ButtonProp) {
+export default function Button({ children, onClick, disabled }: ButtonProp) {
   return (
-    <button className="button" onClick={onClick}>
+    <button className="button" onClick={onClick} disabled={disabled}>
       {children}
     </button>
   );
