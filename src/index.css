@@ -35,6 +35,14 @@ body {
   align-items: start;
 }
 
+.heading-primary {
+  padding: 1.8rem 2rem;
+  background-color: var(--color-medium);
+  margin-bottom: 3rem;
+  max-width: 35rem;
+  border-radius: 7px;
+}
+
 .img {
   border-radius: 50%;
   width: 100%;
