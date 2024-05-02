@@ -26,6 +26,7 @@ describe("Friend", () => {
       image: screen.getByAltText(friend.name),
       lessThanZeroBalance: screen.queryByText(/you owe/i),
       evenBalance: screen.queryByText(/even/i),
+      greaterBalance: screen.queryByText(/owes/i),
       friend,
     };
   };
@@ -44,5 +45,10 @@ describe("Friend", () => {
   it("should not render even if balance greater than zero", () => {
     const { evenBalance } = renderComponent();
     expect(evenBalance).not.toBeInTheDocument();
+  });
+
+  it("should  render owes if balance greater than zero", () => {
+    const { greaterBalance } = renderComponent();
+    expect(greaterBalance).toBeInTheDocument();
   });
 });
