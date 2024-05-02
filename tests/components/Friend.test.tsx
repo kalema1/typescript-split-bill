@@ -24,6 +24,7 @@ describe("Friend", () => {
     return {
       heading: screen.getByRole("heading"),
       image: screen.getByAltText(friend.name),
+      balance: screen.queryByText(/you owe/i),
       friend,
     };
   };
@@ -32,5 +33,10 @@ describe("Friend", () => {
     const { heading, image, friend } = renderComponent();
     expect(image).toBeInTheDocument();
     expect(heading).toHaveTextContent(friend.name);
+  });
+
+  it("should not render you owe if balance greater than zero", () => {
+    const { balance } = renderComponent();
+    expect(balance).not.toBeInTheDocument();
   });
 });
