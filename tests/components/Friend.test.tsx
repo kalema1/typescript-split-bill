@@ -67,4 +67,13 @@ describe("Friend", () => {
 
     expect(button).toHaveTextContent(/close/i);
   });
+
+  it("should  render button with select text after  double clicking on it", async () => {
+    const { button } = renderComponent();
+
+    const user = userEvent.setup();
+    await user.dblClick(button);
+
+    expect(button).toHaveTextContent(/select/i);
+  });
 });
