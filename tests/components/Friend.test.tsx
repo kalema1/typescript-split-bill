@@ -35,27 +35,32 @@ describe("Friend", () => {
 
   it("should render a friend item", () => {
     const { heading, image, friend } = renderComponent();
+
     expect(image).toBeInTheDocument();
     expect(heading).toHaveTextContent(friend.name);
   });
 
   it("should not render you owe if balance greater than zero", () => {
     const { lessThanZeroBalance } = renderComponent();
+
     expect(lessThanZeroBalance).not.toBeInTheDocument();
   });
 
   it("should not render even if balance greater than zero", () => {
     const { evenBalance } = renderComponent();
+
     expect(evenBalance).not.toBeInTheDocument();
   });
 
   it("should  render owes if balance greater than zero", () => {
     const { greaterBalance } = renderComponent();
+
     expect(greaterBalance).toBeInTheDocument();
   });
 
   it("should  render button with select text", () => {
     const { button } = renderComponent();
+
     expect(button).toHaveTextContent(/select/i);
   });
 
