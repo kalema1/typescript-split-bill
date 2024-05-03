@@ -26,6 +26,7 @@ export default function AddFriendForm() {
         type="text"
         value={name}
         onChange={(event) => setName(event.target.value)}
+        placeholder="Name"
       />
 
       <label className="label">📸 Image</label>
