@@ -1,5 +1,6 @@
 import { it, expect, describe } from "vitest";
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import React from "react";
 
 import Friend from "../../src/components/Friend";
@@ -56,5 +57,14 @@ describe("Friend", () => {
   it("should  render button with select text", () => {
     const { button } = renderComponent();
     expect(button).toHaveTextContent(/select/i);
+  });
+
+  it("should  render button with close text after clicking on it", async () => {
+    const { button } = renderComponent();
+
+    const user = userEvent.setup();
+    await user.click(button);
+
+    expect(button).toHaveTextContent(/close/i);
   });
 });
