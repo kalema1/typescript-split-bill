@@ -27,6 +27,7 @@ describe("Friend", () => {
       lessThanZeroBalance: screen.queryByText(/you owe/i),
       evenBalance: screen.queryByText(/even/i),
       greaterBalance: screen.queryByText(/owes/i),
+      button: screen.getByRole("button"),
       friend,
     };
   };
@@ -50,5 +51,10 @@ describe("Friend", () => {
   it("should  render owes if balance greater than zero", () => {
     const { greaterBalance } = renderComponent();
     expect(greaterBalance).toBeInTheDocument();
+  });
+
+  it("should  render button with select text", () => {
+    const { button } = renderComponent();
+    expect(button).toHaveTextContent(/select/i);
   });
 });
