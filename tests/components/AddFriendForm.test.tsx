@@ -18,6 +18,7 @@ describe("AddFriendForm", () => {
 
     return {
       nameInput: screen.getByPlaceholderText(/name/i),
+      imageInput: screen.getByPlaceholderText(/name/i),
     };
   };
 
@@ -25,8 +26,17 @@ describe("AddFriendForm", () => {
     const { nameInput } = renderComponent();
 
     const user = userEvent.setup();
-    await user.type(nameInput, "Jesse");
+    await user.type(nameInput, "jesse");
 
-    expect(nameInput).toHaveValue("Jesse");
+    expect(nameInput).toHaveValue("jesse");
+  });
+
+  it("should not render nothing text if value typed in", async () => {
+    const { nameInput } = renderComponent();
+
+    const user = userEvent.setup();
+    await user.type(nameInput, "jesse");
+
+    expect(nameInput).not.toHaveValue("");
   });
 });
