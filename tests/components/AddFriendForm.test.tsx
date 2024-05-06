@@ -20,6 +20,7 @@ describe("AddFriendForm", () => {
       nameInput: screen.getByPlaceholderText(/name/i),
       imageInput: screen.getByPlaceholderText(/name/i),
       friendLabel: screen.getByText(/friend name/i),
+      imageLabel: screen.getByText(/image/i),
     };
   };
 
@@ -41,9 +42,15 @@ describe("AddFriendForm", () => {
     expect(nameInput).not.toHaveValue("");
   });
 
-  it("shouldrender label text 'friend name", () => {
+  it("shouldrender label text 'friend name'", () => {
     const { friendLabel } = renderComponent();
 
     expect(friendLabel).toBeInTheDocument();
+  });
+
+  it("shouldrender label text 'image'", () => {
+    const { imageLabel } = renderComponent();
+
+    expect(imageLabel).toBeInTheDocument();
   });
 });
