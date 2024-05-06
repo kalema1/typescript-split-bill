@@ -10,7 +10,14 @@ export function BillProvider({ children }: ChildrenProp) {
   const [paidByUser, setPaidByUser] = useState<number | string>("");
   const [whoIsPaying, setWhoisPaying] = useState("user");
 
-  const paidByFriend = bill ? Number(bill) - Number(paidByUser) : "";
+  const billValue = isNaN(Number(bill)) ? "" : bill;
+  const paidByUserValue = isNaN(Number(paidByUser)) ? "" : paidByUser;
+
+  const paidByFriend = bill
+    ? paidByUser
+      ? Number(bill) - Number(paidByUser)
+      : ""
+    : "";
 
   const { selectedFriend, onSplitBill, setIsLoading } =
     useContext(FriendsContext);
@@ -58,9 +65,9 @@ export function BillProvider({ children }: ChildrenProp) {
   return (
     <BillContext.Provider
       value={{
-        bill,
+        billValue,
         setBill,
-        paidByUser,
+        paidByUserValue,
         whoIsPaying,
         setWhoisPaying,
         paidByFriend,

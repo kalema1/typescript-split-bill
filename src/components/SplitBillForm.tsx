@@ -7,9 +7,9 @@ import { FriendsContext } from "../contexts/FriendsContext";
 
 export default function SplitBillForm() {
   const {
-    bill,
+    billValue,
     setBill,
-    paidByUser,
+    paidByUserValue,
     whoIsPaying,
     setWhoisPaying,
     paidByFriend,
@@ -19,9 +19,6 @@ export default function SplitBillForm() {
   } = useContext(BillContext);
 
   const { isLoading } = useContext(FriendsContext);
-
-  const billValue = isNaN(Number(bill)) ? "" : bill;
-  const paidByUserValue = isNaN(Number(paidByUser)) ? "" : paidByUser;
 
   return (
     <form
