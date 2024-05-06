@@ -21,7 +21,9 @@ export default function AddFriendForm() {
       onSubmit={handleSubmit}
       name="add friend"
     >
-      <label className="label">👩🏻‍🤝‍🧑🏼 Friend name</label>
+      <label className="label" htmlFor="friend name">
+        👩🏻‍🤝‍🧑🏼 Friend name
+      </label>
       <input
         type="text"
         value={name}
