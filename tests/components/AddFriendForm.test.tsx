@@ -21,6 +21,7 @@ describe("AddFriendForm", () => {
       imageInput: screen.getByPlaceholderText(/name/i),
       friendLabel: screen.getByText(/friend name/i),
       imageLabel: screen.getByText(/image/i),
+      button: screen.getByRole("button"),
     };
   };
 
@@ -52,5 +53,14 @@ describe("AddFriendForm", () => {
     const { imageLabel } = renderComponent();
 
     expect(imageLabel).toBeInTheDocument();
+  });
+
+  it("should have empty value after form submission", () => {
+    const { button, nameInput } = renderComponent();
+
+    const user = userEvent.setup();
+    user.click(button);
+
+    expect(nameInput).toHaveValue("");
   });
 });
