@@ -22,22 +22,21 @@ describe("AddFriendForm", () => {
       friendLabel: screen.getByText(/friend name/i),
       imageLabel: screen.getByText(/image/i),
       button: screen.getByRole("button"),
+      user: userEvent.setup(),
     };
   };
 
   it("should render input text", async () => {
-    const { nameInput } = renderComponent();
+    const { nameInput, user } = renderComponent();
 
-    const user = userEvent.setup();
     await user.type(nameInput, "jesse");
 
     expect(nameInput).toHaveValue("jesse");
   });
 
   it("should not render nothing text if value typed in", async () => {
-    const { nameInput } = renderComponent();
+    const { nameInput, user } = renderComponent();
 
-    const user = userEvent.setup();
     await user.type(nameInput, "jesse");
 
     expect(nameInput).not.toHaveValue("");
@@ -55,11 +54,10 @@ describe("AddFriendForm", () => {
     expect(imageLabel).toBeInTheDocument();
   });
 
-  it("should have empty value after form submission", () => {
-    const { button, nameInput } = renderComponent();
+  it("should have empty value after form submission", async () => {
+    const { button, nameInput, user } = renderComponent();
 
-    const user = userEvent.setup();
-    user.click(button);
+    await user.click(button);
 
     expect(nameInput).toHaveValue("");
   });
